@@ -25,6 +25,60 @@
   </style>
 </head>
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const supabaseUrl = 'https://uemzsrxdpusxgsplrlcs.supabase.co'; // Remplacez par l'URL de votre projet Supabase
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlbXpzcnhkcHVzeGdzcGxybGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU1MjU1MjIsImV4cCI6MjAwMTEwMTUyMn0.s_5KPR6YdmIxRWIyHZD1vL0epkfTScsN06a8tqQVsdc'; // Remplacez par votre clé d'API Supabase
+
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  const form = document.querySelector('form');
+  const usernameInput = document.querySelector('#username');
+  const messageInput = document.querySelector('#message');
+  const discussionsSection = document.querySelector('section');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const { data, error } = await supabase.from('discussions').insert([
+      { username: usernameInput.value, message: messageInput.value }
+    ]);
+
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('Discussion ajoutée avec succès');
+      usernameInput.value = '';
+      messageInput.value = '';
+      displayDiscussions();
+    }
+  });
+
+  async function displayDiscussions() {
+    const { data, error } = await supabase.from('discussions').select('*');
+
+    if (error) {
+      console.error(error);
+    } else {
+      discussionsSection.innerHTML = '';
+      if (data.length > 0) {
+        data.forEach((discussion) => {
+          const discussionElement = document.createElement('div');
+          discussionElement.innerHTML = `
+            <h3>${discussion.username}</h3>
+            <p>${discussion.message}</p>
+          `;
+          discussionsSection.appendChild(discussionElement);
+        });
+      } else {
+        discussionsSection.innerHTML = '<p>Aucune discussion en cours.</p>';
+      }
+    }
+  }
+
+  displayDiscussions();
+</script>
+
   <header>
     <h1>Discussions - Forum Chayanne</h1>
   </header>
