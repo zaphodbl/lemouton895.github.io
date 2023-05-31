@@ -26,11 +26,11 @@
 </head>
 <body>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
+<script async>
   const supabaseUrl = 'https://uemzsrxdpusxgsplrlcs.supabase.co'; // Remplacez par l'URL de votre projet Supabase
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlbXpzcnhkcHVzeGdzcGxybGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU1MjU1MjIsImV4cCI6MjAwMTEwMTUyMn0.s_5KPR6YdmIxRWIyHZD1vL0epkfTScsN06a8tqQVsdc'; // Remplacez par votre clé d'API Supabase
 
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
   const form = document.querySelector('form');
   const usernameInput = document.querySelector('#username');
@@ -40,7 +40,7 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const { data, error } = await supabase.from('discussions').insert([
+    const { data, error } = await window.supabase.from('discussions').insert([
       { username: usernameInput.value, message: messageInput.value }
     ]);
 
@@ -55,7 +55,7 @@
   });
 
   async function displayDiscussions() {
-    const { data, error } = await supabase.from('discussions').select('*');
+    const { data, error } = await window.supabase.from('discussions').select('*');
 
     if (error) {
       console.error(error);
