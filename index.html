@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forum Chayanne</title>
+  <style>
+    @keyframes backgroundAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    body {
+      animation: backgroundAnimation 5s linear infinite;
+      background: linear-gradient(to right, 
+        red, orange, yellow, green, blue, indigo, violet);
+      background-size: 200% 100%;
+      background-position: 0% 50%;
+    }
+    header {
+      text-align: center;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    section {
+      width: 30%;
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Forum Chayanne</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="discussions.html" onclick="window.location.href='discussions.html'">Discussions</a></li>
+      <li><a href="photos.html" onclick="window.location.href='photos.html'">Photos</a></li>
+      <li><a href="videos.html" onclick="window.location.href='videos.html'">Vidéos</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="discussions">
+      <h2>Discussions</h2>
+      <p>Bienvenue sur notre forum consacré à Chayanne ! Discutez de ses chansons, de ses concerts et de tout ce qui concerne l'artiste avec d'autres fans ici.</p>
+    </section>
+    <section id="photos">
+      <h2>Photos</h2>
+            <p>Partagez et regardez des photos de Chayanne ici.</p>
+    </section>
+    <section id="videos">
+      <h2>Vidéos</h2>
+      <p>Regardez des vidéos de Chayanne et discutez-en ici.</p>
+    </section>
+  </main>
+  <footer>
+    <p>Copyright ©2022 Forum Chayanne</p>
+  </footer>
+</body>
+</html>
+
