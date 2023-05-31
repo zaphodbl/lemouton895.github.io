@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discussions - Forum Chayanne</title>
+<style>
+    @keyframes backgroundAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    body {
+      animation: backgroundAnimation 5s linear infinite;
+      background: linear-gradient(to right, 
+        red, orange, yellow, green, blue, indigo, violet);
+      background-size: 200% 100%;
+      background-position: 0% 50%;
+    }
+    /* autres styles */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Discussions - Forum Chayanne</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="main.html">Accueil</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="videos.html">Vidéos</a></li>
+    </ul>
+  </nav>
+  <main>
+    <form>
+      <label for="username">Nom d'utilisateur :</label>
+      <input type="text" id="username" name="username"><br>
+      <label for="message">Message :</label>
+      <textarea id="message" name="message"></textarea><br>
+      <input type="submit" value="Envoyer">
+    </form>
+    <section>
+      <h2>Discussions en cours</h2>
+      <p>Aucune discussion en cours.</p>
+    </section>
+  </main>
+  <footer>
+    <p>Copyright ©2022 Forum Chayanne</p>
+  </footer>
+</body>
+</html>
+
