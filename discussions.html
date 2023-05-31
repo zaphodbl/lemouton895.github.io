@@ -30,7 +30,7 @@
   const supabaseUrl = 'https://uemzsrxdpusxgsplrlcs.supabase.co'; // Remplacez par l'URL de votre projet Supabase
   const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlbXpzcnhkcHVzeGdzcGxybGNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU1MjU1MjIsImV4cCI6MjAwMTEwMTUyMn0.s_5KPR6YdmIxRWIyHZD1vL0epkfTScsN06a8tqQVsdc'; // Remplacez par votre clé d'API Supabase
 
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
   const form = document.querySelector('form');
   const usernameInput = document.querySelector('#username');
